@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Girlfriend? 😻</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background: 
+                linear-gradient(rgba(255, 228, 225, 0.8), rgba(255, 228, 225, 0.8)),
+                repeating-conic-gradient(
+                    #ffd1dc 0% 25%, 
+                    #ffffff 0% 50%
+                );
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
+            max-width: 500px;
+            border: 4px dotted #ff69b4;
+            position: relative;
+        }
+
+        h1 {
+            color: #ff69b4;
+            font-size: 2.5em;
+            margin: 1rem 0;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 2rem;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        #yesBtn {
+            background: #ff69b4;
+            color: white;
+        }
+
+        #noBtn {
+            background: #ff4444;
+            color: white;
+            transition: all 0.1s linear;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        .cat-emoji {
+            font-size: 3em;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .paw-prints {
+            position: absolute;
+            font-size: 2em;
+            opacity: 0.3;
+        }
+
+        .celebration {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 192, 203, 0.95);
+            z-index: 1000;
+        }
+
+        .celebration-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="paw-prints" style="top:10%; left:15%">🐾</div>
+    <div class="paw-prints" style="top:20%; right:20%">🐾</div>
+    <div class="paw-prints" style="bottom:15%; left:25%">🐾</div>
+
+    <div class="container">
+        <div class="cat-emoji">😻</div>
+        <h1>Will You Be My Girlfriend?</h1>
+        <p>You make my heart purr like a kitten!<br>
+        Let's be each other's forever cuddle buddy! 🐾</p>
+        
+        <div class="buttons">
+            <button id="yesBtn" onclick="showCelebration()">Yes! 😻</button>
+            <button id="noBtn" onmouseover="moveButton()">No... 😅</button>
+        </div>
+    </div>
+
+    <div class="celebration" id="celebration">
+        <div class="celebration-content">
+            <div class="cat-emoji" style="font-size:4em">🎉🐾💖</div>
+            <h2>You Said YES! 😻</h2>
+            <p>Our purr-fect adventure begins now!<br>
+            Let's fill our lives with love and cat cuddles! 🐱💕</p>
+            <button onclick="window.location.href = 'https://www.instagram.com/sungjinwoo_p/'" 
+                    style="background: #ff69b4; color: white; padding: 15px 40px;">
+                Start Our Journey! 🚀
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            const maxX = window.innerWidth - noBtn.offsetWidth;
+            const maxY = window.innerHeight - noBtn.offsetHeight;
+            
+            const newX = Math.random() * (maxX - 50);
+            const newY = Math.random() * (maxY - 50);
+
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = newX + 'px';
+            noBtn.style.top = newY + 'px';
+            noBtn.style.transform = `rotate(${Math.random() * 20 - 10}deg)`;
+        }
+
+        function showCelebration() {
+            document.getElementById('celebration').style.display = 'block';
+            const container = document.querySelector('.container');
+            container.style.transform = 'scale(0.95)';
+            container.style.filter = 'blur(2px)';
+        }
+    </script>
+</body>
+</html>
